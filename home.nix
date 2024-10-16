@@ -23,6 +23,7 @@
   home.packages = [
     pkgs.stremio
     pkgs.vscode
+    pkgs.google-chrome
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

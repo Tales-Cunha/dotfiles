@@ -143,6 +143,9 @@ in
     };
   };
   
+  security.pam.services.hyprlock = {};
+
+
   programs.vscode = {
     enable =true; 
   };
@@ -250,5 +253,6 @@ in
         ];
       };
     };
+    security.pam.services.hyprlock = {};
   };
 }

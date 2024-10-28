@@ -143,7 +143,7 @@ in
     };
   };
   
-  security.pam.services.hyprlock = {};
+  
 
 
   programs.vscode = {
@@ -175,10 +175,10 @@ in
         inactive_tab_font_style bold
       '';
     };
-     starship = {
-            enable = true;
-            package = pkgs.starship;
-     };
+    starship = {
+          enable = true;
+          package = pkgs.starship;
+    };
     bash = {
       enable = true;
       enableCompletion = true;
@@ -253,6 +253,5 @@ in
         ];
       };
     };
-    security.pam.services.hyprlock = {};
   };
 }

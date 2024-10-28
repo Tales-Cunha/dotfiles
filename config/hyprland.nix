@@ -59,7 +59,7 @@ with lib;
           }
           input {
             kb_layout = ${keyboardLayout}
-            kb_variant = intl
+            kb_variant = alt-intl
             kb_options = grp:alt_shift_toggle
             follow_mouse = 1
             touchpad {

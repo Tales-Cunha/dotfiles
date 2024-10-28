@@ -102,8 +102,8 @@ in
   };
 
   # Extra Module Options
-  drivers.amdgpu.enable = true;
-  drivers.nvidia.enable = false;
+  drivers.amdgpu.enable = false;
+  drivers.nvidia.enable = true;
   drivers.nvidia-prime = {
     enable = false;
     intelBusID = "";
@@ -333,10 +333,10 @@ in
     ];
   };
 
-  environment.variables = {
-    ZANEYOS_VERSION = "2.2";
-    ZANEYOS = "true";
-  };
+  #environment.variables = {
+  #  ZANEYOS_VERSION = "2.2";
+  #  ZANEYOS = "true";
+  #};
 
   # Extra Portal Configuration
   xdg.portal = {
@@ -359,7 +359,7 @@ in
       enable = false;
       xkb = {
         layout = "${keyboardLayout}";
-        variant = "intl";
+        variant = "alt-intl";
       };
     };
     greetd = {
@@ -456,9 +456,10 @@ in
       }
     })
   '';
-  security.pam.services.swaylock = {
+  security.pam.services.hyprlock = {
     text = ''
-      auth include login
+      auth required pam_unix.so
+      account required pam_unix.so
     '';
   };
 

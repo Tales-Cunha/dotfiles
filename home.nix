@@ -7,12 +7,12 @@ in
         #(./. + "../../../user/wm"+("/" + ${wm})+".nix")
         # (./. + "../../../user/wm"+("/" + builtins.elemAt settings.wm 1)+".nix")
         #./themes/stylix.nix
-        ./home-manager/user/apps/kitty.nix
-        ./home-manager/user/apps/git.nix
+        #./home-manager/user/apps/kitty.nix
+        #./home-manager/user/apps/git.nix
         #./user/apps/superfile.nix
-        ./home-manager/user/apps/neofetch
-        ./home-manager/user/shell/zsh.nix
-        ./home-manager/user/apps/neovim 
+        #./home-manager/user/apps/neofetch
+        #./home-manager/user/shell/zsh.nix
+        #./home-manager/user/apps/neovim 
     ];
 
     stylix.targets.hyprland.enable = false;

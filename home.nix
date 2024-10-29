@@ -51,8 +51,8 @@ in
 
         # These packages are compulsury.
         # settings.editorPkg
-        browser
-        terminal
+        brave
+        kitty
     ];
 
     xdg.enable = true;

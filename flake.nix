@@ -17,7 +17,7 @@
   outputs =
     { nixpkgs, home-manager,spicetify-nix, ... }@inputs:
     let
-      system = "aarch64-linux";
+      system = "x86_64-linux";
       host = "Tales";
       username = "talesc";
     in
@@ -47,6 +47,24 @@
               home-manager.users.${username} = import ./hosts/${host}/home.nix;
             }
           ];
+        };
+      };
+
+      # Standalone home-manager configuration entrypoint.
+      # 'home-manager switch --flake .#username
+      homeConfigurations = {
+        "${username}" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+          modules = [
+            ./home-manager/home.nix
+            inputs.stylix.homeManagerModules.stylix
+            inputs.nixvim.homeManagerModules.nixvim
+          ];
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit username;
+            inherit host;
+          };
         };
       };
     };

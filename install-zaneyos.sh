@@ -5,6 +5,37 @@ if [ -n "$(grep -i nixos < /etc/os-release)" ]; then
   echo "-----"
 else
   echo "This is not NixOS or the distribution information is not available."
+  echo "Installing Nix..."
+  sh <(curl -L https://nixos.org/nix/install) --daemon
+  echo "-----"
+  
+  echo "Enabling flakes..."
+  mkdir -p ~/.config/nix
+  echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
+  echo "-----"
+  
+  echo "Modifying the option file in home-manager folder..."
+  read -rp "Enter the value for option: " optionValue
+  sed -i "s/^option = .*/option = \"$optionValue\"/" ~/home-manager/option
+  echo "-----"
+  
+  while true; do
+    read -rp "Have you modified the option.nix file? (yes/no): " modified
+    if [ "$modified" == "yes" ]; then
+      break
+    else
+      echo "Please modify the option.nix file and then answer 'yes'."
+    fi
+  done
+  
+  echo "Installing Home Manager..."
+  nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+  nix-channel --update
+  nix-shell '<home-manager>' -A install
+  echo "-----"
+  
+  echo "Running home-manager switch --flake ."
+  home-manager switch --flake .
   exit
 fi
 
@@ -64,7 +95,6 @@ git config --global user.name "installer"
 git config --global user.email "installer@gmail.com"
 git add .
 sed -i "/^\s*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./flake.nix
-
 
 read -rp "Enter your keyboard layout: [ us ] " keyboardLayout
 if [ -z "$keyboardLayout" ]; then

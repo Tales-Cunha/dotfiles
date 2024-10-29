@@ -53,7 +53,6 @@ in
         # settings.editorPkg
         browser
         terminal
-        settings.termPkg
     ];
 
     xdg.enable = true;

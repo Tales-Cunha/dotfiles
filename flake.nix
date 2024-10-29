@@ -56,7 +56,7 @@
         "${username}" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [
-            ./home-manager/home.nix
+            ./home.nix
             inputs.stylix.homeManagerModules.stylix
             inputs.nixvim.homeManagerModules.nixvim
           ];

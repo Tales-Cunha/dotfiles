@@ -12,6 +12,10 @@
     };
     # Spicetify, a spotify theming tool
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    nixvim = {
+        url = "github:nix-community/nixvim";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

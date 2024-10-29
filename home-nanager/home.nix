@@ -21,7 +21,7 @@ in
         username = ${username};
         homeDirectory = "/home/${username}";
     };
-
+    #oi
     # Add packages from the pkgs dir
     #nixpkgs.overlays = import ../../lib/overlays.nix;
     nixpkgs.config.allowUnfree = true; # Sorry, Stallman(

@@ -19,7 +19,7 @@
     let
       system = "x86_64-linux";
       host = "Tales";
-      username = "talesc";
+      username = "tales";
     in
     {
       nixosConfigurations = {

@@ -16,7 +16,7 @@ else
   
   echo "Modifying the option file in home-manager folder..."
   read -rp "Enter the value for option: " optionValue
-  sed -i "s/^option = .*/option = \"$optionValue\"/" ~/home-manager/option
+  sed -i "s/^option = .*/option = \"$optionValue\"/" ~/home-manager/option.nix
   echo "-----"
   
   while true; do

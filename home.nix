@@ -56,6 +56,7 @@ in
     ];
 
     xdg.enable = true;
+    /*
     xdg.userDirs = {
         enable = true;
         createDirectories = true;
@@ -72,7 +73,7 @@ in
             XDG_BOOK_DIR = "${config.home.homeDirectory}/Media/Books";
         };
     };
-
+    */
     xdg.dataFile.icons = {
         source = ./non-nix/icons;
         recursive = true;
@@ -96,5 +97,5 @@ in
         };
     };
 
-    home.stateVersion = "23.05";
+    home.stateVersion = "24.05";
 }
